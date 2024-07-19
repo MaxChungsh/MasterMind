@@ -5,7 +5,7 @@ def display(board, his):
     print("P = position correct, with correct color")
     print("C = correct color, but wrong position")
     print("---+---+---+---+------")
-    for i in range(0, 32, 4):
+    for i in range(0, 40, 4):
         print(f" {board[i]}   {board[i + 1]}   {board[i + 2]}   {board[i + 3]}   {his[i // 4]}")
         print("---+---+---+---+------")
 
@@ -13,7 +13,7 @@ def getinput(board, his, result, q):
     p = 0
     c = 0
     temp = result
-    for i in range(0, 32):
+    for i in range(0, 40):
         if board[i] == '':
             current_index = i
             break
@@ -32,7 +32,7 @@ def getinput(board, his, result, q):
                         break
         c -= p
         his[q] = f"{p}P{c}C"
-        if len(his) >= 8:
+        if len(his) >= 10:
             return
     else:
         print("Invalid input. Please use only R, G, B, or Y.")
@@ -46,10 +46,10 @@ def play():
     print("Welcome to Master Mind!")
     result = gen()
     #print(result)
-    board = [''] * 32
-    his = [''] * 8
+    board = [''] * 40
+    his = [''] * 10
     i = 0
-    while i != 8:
+    while i != 10:
         getinput(board, his, result, i)
         display(board, his)
         #print(his[i])
